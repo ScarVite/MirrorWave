@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@tidal-music/api": "^0.25.0",
+    "spotify-web-api-node": "^5.0.2"
+  }
+}
