@@ -1,4 +1,5 @@
 node_modules/
+.mirrorwave/
 .env
 .env.local
 .env.development

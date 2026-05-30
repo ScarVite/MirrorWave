@@ -1,6 +1,28 @@
 {
-  "dependencies": {
-    "@tidal-music/api": "^0.25.0",
-    "spotify-web-api-node": "^5.0.2"
-  }
+    "name": "mirrorwave",
+    "version": "1.0.0",
+    "description": "MirrorWave - mirrors new tracks from a Spotify playlist into a Tidal playlist",
+    "main": "dist/index.js",
+    "scripts": {
+        "start": "node dist/index.js",
+        "build": "tsc",
+        "dev": "ts-node src/index.ts",
+        "auth": "ts-node src/cli/auth.ts",
+        "sync": "ts-node src/cli/sync.ts"
+    },
+    "dependencies": {
+        "@sentry/node": "^10.55.0",
+        "@tidal-music/api": "^0.25.0",
+        "dotenv": "^17.4.2",
+        "googleapis": "^144.0.0",
+        "node-schedule": "^2.1.1",
+        "spotify-web-api-node": "^5.0.2"
+    },
+    "devDependencies": {
+        "@types/node": "^25.9.1",
+        "@types/node-schedule": "^2.1.8",
+        "@types/spotify-web-api-node": "^5.0.11",
+        "ts-node": "^10.9.2",
+        "typescript": "^6.0.3"
+    }
 }
