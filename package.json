@@ -14,7 +14,7 @@
         "@sentry/node": "^10.55.0",
         "@tidal-music/api": "^0.25.0",
         "dotenv": "^17.4.2",
-        "googleapis": "^144.0.0",
+        "googleapis": "^173.0.0",
         "node-schedule": "^2.1.1",
         "spotify-web-api-node": "^5.0.2"
     },
