@@ -19,6 +19,7 @@ export function initSentry() {
     dsn,
     environment: process.env.NODE_ENV || 'development',
     tracesSampleRate: 0.1,
+    enableLogs: true,
   });
 
   console.log('Sentry initialized');
@@ -35,6 +36,8 @@ export const logger = {
 
     if (isDev) {
       console.log(`[INFO] ${message}`, data || '');
+    } else {
+      Sentry.logger.info(`[INFO] ${message}`, data || '');
     }
   },
 
@@ -46,8 +49,11 @@ export const logger = {
       level: 'debug',
     });
 
+
     if (isDev) {
       console.log(`[DEBUG] ${message}`, data || '');
+    } else {
+      Sentry.logger.debug(`[DEBUG] ${message}`, data || '');
     }
   },
 
@@ -59,7 +65,11 @@ export const logger = {
       level: 'warning',
     });
 
-    console.warn(`[WARN] ${message}`, data || '');
+    if (isDev) {
+      console.warn(`[WARN] ${message}`, data || '');
+    } else {
+      Sentry.logger.warn(`[WARN] ${message}`, data || '');
+    }
   },
 
   error(message: string, error?: Error | any, data?: any) {
@@ -70,7 +80,11 @@ export const logger = {
       level: 'error',
     });
 
-    console.error(`[ERROR] ${message}`, error || '');
+    if (isDev) {
+      console.error(`[ERROR] ${message}`, error || '');
+    } else {
+      Sentry.logger.error(`[ERROR] ${message}`, error || '');
+    }
 
     if (isProduction && error) {
       Sentry.captureException(error, {
